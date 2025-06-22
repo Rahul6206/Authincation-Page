@@ -1,0 +1,5 @@
+# Ignore package.json (not recommended for most projects)
+
+// /node_modules
+/node_modules/
+/package-lock.json
