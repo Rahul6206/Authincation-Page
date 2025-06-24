@@ -5,6 +5,6 @@ const Router=require('express').Router();
 
 Router.post('/login',SingINValidation,SingIn);
 
-Router.post('/Singup',SingUPValidation,SingUp)
+Router.post('/singup',SingUPValidation,SingUp)
 
 module.exports=Router;
