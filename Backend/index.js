@@ -3,6 +3,7 @@ const express = require('express');
 const cors=require('cors')
 const Auth=require('./Routes/Authincation')
 const itemvalidation=require('./Middlewares/itemRoute')
+const Data=require('./Data/itemdata')
 require('dotenv').config();
 require('./Models/Database'); // Import the database connection
 const app = express();
@@ -18,21 +19,12 @@ app.use('/auth', Auth)
 app.get('/', (req, res) => {
     console.log('Received a GET request on /');
     
-    res.send('Hello, world!');
 });
 app.get('/item',itemvalidation,(req,res)=>{
-    console.log('User Informations',res.user);
+    console.log('User Informations',req.user);
     
-    res.status(200).json([
-        {
-            name:"Apples",
-            price: 100
-        },
-        {
-            name:"Laptop",
-            price: 70000
-        }
-    ])
+    res.status(200).json(Data);
+    
 })
 
 // Start server
